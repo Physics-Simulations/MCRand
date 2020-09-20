@@ -6,7 +6,7 @@ import numpy as np
 
 sys.path.insert(0, os.getcwd())
 
-from mcrand import distribution, sample, uniform_integration  # noqa: E402
+from mcrand import sample, uniform_integration  # noqa: E402
 
 
 def uniform_function(x):

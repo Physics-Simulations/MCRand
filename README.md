@@ -2,12 +2,12 @@
 MCRand is a library of Monte Carlo methods. Multidimensional integration, non-uniform random number generation, etc.
 
 # Random Number Generator
-In the [MCRand_tests](samples/MCRand_tests.py) you can find a comparison between MCRand and Numpy for different proability distributions. Moreover, we use the program to generate random samples drawn from non-standard distributions. Anyway, we show here a quick guide to use MCRand library to generate the outputs of [MCRand_tests](MCRand_tests/MCRand_tests.py).
+In the [samples](samples/) folder you can find a comparison between MCRand and Numpy for different proability distributions. Moreover, we use the program to generate random samples drawn from non-standard distributions. Anyway, we show here a quick guide to use MCRand library to generate the outputs of [samples/pdf.py](samples/pdf.py).
 
 To use the MCRand library to generate random numbers we first need to import the random generator (RandGen). This step can be done in the following way
 
 ```python
-from MCRand import RandGen as rg
+from mcrand import sample
 ```
 
 ## Gaussian distribution
@@ -29,12 +29,14 @@ N = 1000
 sigma = 1
 mu = 0
 
-gaussian_sample = rg.sample(gaussian, x0, xf, N, mu, sigma)
+gaussian_sample = sample(gaussian, x0, xf, N, mu, sigma)
 ```
 
-Finally to plot the histogram and the PDF we can use matplotlib.pyplot
+Finally to plot the histogram and the PDF we can use `matplotlib.pyplot`
 
 ```python
+import matplotlib.pyplot as plt
+
 plt.hist(gaussian_sample, bins=30, density=True, color=(0,1,0,0.5), label='MCRand sample')
 plt.plot(x, gaussian(x, mu, sigma), color='r', label=r'Gaussian PDF $\mu=%.2f$, $\sigma=%.2f$' % (mu,sigma))
 ```
@@ -61,7 +63,7 @@ N = 10**5
 x0_cauchy = 0
 gamma = 1
 
-cauchy_sample = rg.sample(gaussian, x0, xf, N, mu, sigma)
+cauchy_sample = sample(gaussian, x0, xf, N, mu, sigma)
 ```
 
 Finally we plot the histogram and the PDF
@@ -73,7 +75,7 @@ plt.plot(x, cauchy(x, x0_cauchy, gamma), color='r', label=r'Cauchy PDF $\gamma=%
 
 ![Cauchy distribution with Numpy and MCRand](samples/figs/Cauchy_dist.png)
 
-From now on, we'll just write some code along with the output figures of the [MCRand_tests](samples/MCRand_tests.py) file.
+From now on, we'll just write some code along with the output figures of the [pdf.py](samples/pdf.py) file.
 
 ## Exponential distribution
 
@@ -85,7 +87,7 @@ x0 = 0
 xf = 10
 N = 10**5
 
-rand = rg.sample(exponential, x0, xf, N)
+rand = sample(exponential, x0, xf, N)
 
 plt.hist(numpy_rand, bins=30, density=True, color=(0,0,1,0.8), label='NumPy sample')
 plt.hist(rand, bins=30, density=True, color=(0,1,0,0.5), label='MCRand sample')
@@ -97,7 +99,6 @@ plt.hist(rand, bins=30, density=True, color=(0,1,0,0.5), label='MCRand sample')
 ## Rayleigh distribution
 
 ```python
-
 def rayleigh(x, sigma):
 	return (x*np.exp(-(x**2)/(2*sigma**2))) / (sigma**2)
 
@@ -106,7 +107,7 @@ xf = 4
 sigma = 1
 N = 10**5
 
-rand = rg.sample(rayleigh, x0, xf, N, sigma)
+rand = sample(rayleigh, x0, xf, N, sigma)
 
 plt.hist(rand, bins=30, density=True, color=(0,1,0,0.5), label='MCRand sample')
 plt.plot(x, rayleigh(x, sigma), color='r', label=r'Rayleigh PDF $\sigma=%.2f$' % sigma)
@@ -126,7 +127,7 @@ xf = 10
 sigma = 2
 N = 10**5
 
-rand = rg.sample(maxwell_boltzmann, x0, xf, N, sigma)
+rand = sample(maxwell_boltzmann, x0, xf, N, sigma)
 
 plt.hist(rand, bins=30, density=True, color=(0,1,0,0.5), label='MCRand sample')
 plt.plot(x, maxwell_boltzmann(x, sigma), color='r', label=r'Maxwell-Boltzmann PDF $\sigma=%.2f$' % sigma)
@@ -146,7 +147,7 @@ xf = 10
 sigma = 2
 N = 10**5
 
-rand = rg.sample(symmetric_maxwell_boltzmann, x0, xf, N, sigma)
+rand = sample(symmetric_maxwell_boltzmann, x0, xf, N, sigma)
 
 plt.hist(rand, bins=40, density=True, color=(0,1,0,0.5), label='MCRand sample')
 plt.plot(x, symmetric_maxwell_boltzmann(x, sigma), color='r', label=r'Maxwell-Boltzmann PDF $\sigma=%.2f$' % sigma)
@@ -173,7 +174,7 @@ xf = 4
 sigma = 1
 N = 10**5
 
-rand = rg.sample(invented, x0, xf, N, sigma)
+rand = sample(invented, x0, xf, N, sigma)
 
 plt.hist(rand, bins=40, density=True, color=(0,1,0,0.5), label='MCRand sample')
 plt.plot(x, invented(x, sigma), color='r', label=r'Modified Rayleigh PDF $\sigma=%.2f$' % sigma)
@@ -186,7 +187,7 @@ plt.plot(x, invented(x, sigma), color='r', label=r'Modified Rayleigh PDF $\sigma
 To use the MCRand library to perform multidimensional integrals we first need to import the Integrate module. This step can be done in the following way
 
 ```python
-from MCRand import Integrate as integrate
+from mcrand import uniform_sampling
 ```
 
 Then, we must define the function to integrate in an NumPy ndarray supported way, so it must be defined generally. For instance let's imagine we want so solve the following integral:
@@ -196,7 +197,6 @@ Then, we must define the function to integrate in an NumPy ndarray supported way
 Then we should define the function as
 
 ```python
-
 def func(x):
 	return np.sum(np.power(x, 2))
 ```
@@ -210,7 +210,7 @@ x0 = [0, 0]
 xf = [2, 3]
 N = 10**6
 
-result = integrate.UniformSampling(func, x0, xf, N)
+result = uniform_sampling(func, x0, xf, N)
 
 print(result)
 ```
