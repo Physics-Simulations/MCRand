@@ -1,8 +1,6 @@
 import setuptools
 from uncvalue import __version__
 
-# https://packaging.python.org/tutorials/packaging-projects/
-
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
@@ -24,7 +22,8 @@ setuptools.setup(
         "Topic :: Scientific/Engineering :: Mathematics"
     ],
     install_requires=[
-        'numpy>=1.18'
+        'numpy>=1.18',
+        'scipy>=1.5'
     ],
     python_requires='>=3.6',
 )
