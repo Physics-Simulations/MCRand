@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Reference &#8212; MCRand 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contact" href="contact.html" />
+    <link rel="prev" title="Installation" href="install.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-mcrand"></span><dl class="py function">
+<dt id="mcrand.distribution">
+<code class="sig-prename descclassname">mcrand.</code><code class="sig-name descname">distribution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdf</span></em>, <em class="sig-param"><span class="n">bounds</span></em>, <em class="sig-param"><span class="n">max_sample</span><span class="o">=</span><span class="default_value">100000</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mcrand.distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator of random numbers following the given probability density function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pdf</strong><span class="classifier">func</span></dt><dd><p>the probability density function.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Input parameters:</dt><dd><ul>
+<li><dl class="simple">
+<dt><cite>x</cite><span class="classifier">float</span></dt><dd><p>the evaluation point</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>*args</cite><span class="classifier">tuple</span></dt><dd><p>extra parameters</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Output parameters:</dt><dd><ul>
+<li><p><cite>y</cite> : float</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt><strong>bounds</strong><span class="classifier">tuple of floats</span></dt><dd><p>lower and upper limit</p>
+</dd>
+<dt><strong>max_sample</strong><span class="classifier">int</span></dt><dd><p>the quantity of random numbers to return</p>
+</dd>
+<dt><strong>*args</strong><span class="classifier">args</span></dt><dd><p>extra arguments for the pdf</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>random_numbers</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>collection of random numbers following the given pdf.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>pdf is expected to be a probability density function therefore it must be positively defined in the range specified.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mcrand.sample">
+<code class="sig-prename descclassname">mcrand.</code><code class="sig-name descname">sample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pdf</span></em>, <em class="sig-param"><span class="n">x0</span></em>, <em class="sig-param"><span class="n">xf</span></em>, <em class="sig-param"><span class="n">shape</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mcrand.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator of random numbers following the given probability density function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>pdf</strong><span class="classifier">func</span></dt><dd><p>the probability density function</p>
+</dd>
+<dt><strong>x0</strong><span class="classifier">float</span></dt><dd><p>the lower limit</p>
+</dd>
+<dt><strong>xf</strong><span class="classifier">float</span></dt><dd><p>the upper limit</p>
+</dd>
+<dt><strong>shape</strong><span class="classifier">int or tuple of ints</span></dt><dd><p>the shape of the generated random numbers array</p>
+</dd>
+<dt><strong>*args</strong><span class="classifier">args</span></dt><dd><p>extra arguments for the pdf</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>random_numbers</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>collection of random numbers following the given pdf with the specified shape.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="#mcrand.distribution" title="mcrand.distribution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mcrand.distribution</span></code></a></dt><dd></dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mcrand.uniform_integration">
+<code class="sig-prename descclassname">mcrand.</code><code class="sig-name descname">uniform_integration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f</span></em>, <em class="sig-param"><span class="n">limits</span></em>, <em class="sig-param"><span class="n">N</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mcrand.uniform_integration" title="Permalink to this definition">¶</a></dt>
+<dd><p>MonteCarlo integration of multidimensional functions.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>f</strong><span class="classifier">func</span></dt><dd><p>integration function.
+input parameters:
+*   x : numpy.ndarray</p>
+<blockquote>
+<div><p>the evaluation point, n-dimensional vector</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>args<span class="classifier">tuple</span></dt><dd><p>extra parameters</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>output parameters:
+*   y : float</p>
+</dd>
+<dt><strong>limits</strong><span class="classifier">list of tuple</span></dt><dd><p>a list containing the lower and upper limits of integration for each dimension
+as tuple with two ints (low, high).</p>
+</dd>
+<dt><strong>N</strong><span class="classifier">int</span></dt><dd><p>number of points used</p>
+</dd>
+<dt><strong>*args</strong><span class="classifier">args</span></dt><dd><p>extra arguments for the evaluation function</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>integral</strong><span class="classifier">float</span></dt><dd><p>the result of the integral</p>
+</dd>
+<dt><strong>error</strong><span class="classifier">float</span></dt><dd><p>the standard deviation</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MCRand</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="install.html" title="previous chapter">Installation</a></li>
+      <li>Next: <a href="contact.html" title="next chapter">Contact</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Physics Simulations.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

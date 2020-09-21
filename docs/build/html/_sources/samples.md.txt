@@ -1,8 +1,7 @@
-# MCRand
-MCRand is a library of Monte Carlo methods. Multidimensional integration, non-uniform random number generation, etc.
+# Samples
 
-# Random Number Generator
-In the [samples](samples/) folder you can find a comparison between MCRand and Numpy for different probability distributions. Moreover, we use the program to generate random samples drawn from non-standard distributions. Anyway, we show here a quick guide to use MCRand library to generate the outputs of [samples/pdf.py](samples/pdf.py).
+## Random Number Generator
+Here you can find a comparison between MCRand and Numpy for different probability distributions. Moreover, we use the program to generate random samples drawn from non-standard distributions.
 
 To use the MCRand library to generate random numbers we first need to import the random generator (RandGen). This step can be done in the following way
 
@@ -10,7 +9,7 @@ To use the MCRand library to generate random numbers we first need to import the
 from mcrand import sample
 ```
 
-## Gaussian distribution
+### Gaussian distribution
 
 To generate gaussian distributed numbers with the MCRand random generator we first need to define the Gaussian PDF
 
@@ -41,9 +40,9 @@ plt.hist(gaussian_sample, bins=30, density=True, color=(0,1,0,0.5), label='MCRan
 plt.plot(x, gaussian(x, mu, sigma), color='r', label=r'Gaussian PDF $\mu=%.2f$, $\sigma=%.2f$' % (mu,sigma))
 ```
 
-![Gaussian distribution with Numpy and MCRand](samples/figs/Gaussian_dist.png)
+![Gaussian distribution with Numpy and MCRand](../../samples/figs/Gaussian_dist.png)
 
-## Cauchy distribution
+### Cauchy distribution
 
 To generate a Cauchy distribution we need to define its PDF
 
@@ -73,11 +72,11 @@ plt.hist(cauchy_sample, bins=50, density=True, color=(0,1,0,0.5), label='MCRand 
 plt.plot(x, cauchy(x, x0_cauchy, gamma), color='r', label=r'Cauchy PDF $\gamma=%.2f$, $x_0=%.2f$' % (gamma, x0_cauchy))
 ```
 
-![Cauchy distribution with Numpy and MCRand](samples/figs/Cauchy_dist.png)
+![Cauchy distribution with Numpy and MCRand](../../samples/figs/Cauchy_dist.png)
 
-From now on, we'll just write some code along with the output figures of the [pdf.py](samples/pdf.py) file.
+From now on, we'll just write some code along with the output figures.
 
-## Exponential distribution
+### Exponential distribution
 
 ```python
 def exponential(x):
@@ -94,9 +93,9 @@ plt.hist(rand, bins=30, density=True, color=(0,1,0,0.5), label='MCRand sample')
 
 ```
 
-![Exponential distribution with Numpy and MCRand](samples/figs/Exponential_dist.png)
+![Exponential distribution with Numpy and MCRand](../../samples/figs/Exponential_dist.png)
 
-## Rayleigh distribution
+### Rayleigh distribution
 
 ```python
 def rayleigh(x, sigma):
@@ -114,9 +113,9 @@ plt.plot(x, rayleigh(x, sigma), color='r', label=r'Rayleigh PDF $\sigma=%.2f$' %
 
 ```
 
-![Rayleigh distribution with Numpy and MCRand](samples/figs/Rayleigh_dist.png)
+![Rayleigh distribution with Numpy and MCRand](../../samples/figs/Rayleigh_dist.png)
 
-## Maxwell-Boltzmann distribution
+### Maxwell-Boltzmann distribution
 
 ```python
 def maxwell_boltzmann(x, sigma):
@@ -134,9 +133,9 @@ plt.plot(x, maxwell_boltzmann(x, sigma), color='r', label=r'Maxwell-Boltzmann PD
 
 ```
 
-![Maxwell-Boltzmann distribution with Numpy and MCRand](samples/figs/Maxwell_Boltzmann_dist.png)
+![Maxwell-Boltzmann distribution with Numpy and MCRand](../../samples/figs/Maxwell_Boltzmann_dist.png)
 
-## Symmetric Maxwell-Boltzmann distribution
+### Symmetric Maxwell-Boltzmann distribution
 
 ```python
 def symmetric_maxwell_boltzmann(x, sigma):
@@ -153,9 +152,9 @@ plt.hist(rand, bins=40, density=True, color=(0,1,0,0.5), label='MCRand sample')
 plt.plot(x, symmetric_maxwell_boltzmann(x, sigma), color='r', label=r'Maxwell-Boltzmann PDF $\sigma=%.2f$' % sigma)
 ```
 
-![Symmetric Maxwell-Boltzmann distribution with Numpy and MCRand](samples/figs/Symmetric_MB_dist.png)
+![Symmetric Maxwell-Boltzmann distribution with Numpy and MCRand](../../samples/figs/Symmetric_MB_dist.png)
 
-## Modified Rayleigh distribution
+### Modified Rayleigh distribution
 
 Finally we consider a invented probability distribution, given by the Rayleigh distribution multiplied by `x`. In some way we making a symmetric Rayleigh distribution. Then, this new distribution must be normalized, so the following equation must be acomplished:
 
@@ -180,9 +179,9 @@ plt.hist(rand, bins=40, density=True, color=(0,1,0,0.5), label='MCRand sample')
 plt.plot(x, invented(x, sigma), color='r', label=r'Modified Rayleigh PDF $\sigma=%.2f$' % sigma)
 ```
 
-![Modified Rayleigh distribution with Numpy and MCRand](samples/figs/Modified_Rayleigh_dist.png)
+![Modified Rayleigh distribution with Numpy and MCRand](../../samples/figs/Modified_Rayleigh_dist.png)
 
-# Multidimensional Integration
+## Multidimensional Integration
 
 To use the MCRand library to perform multidimensional integrals we first need to import the Integrate module. This step can be done in the following way
 

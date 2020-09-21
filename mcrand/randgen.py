@@ -8,14 +8,15 @@ def distribution(pdf, bounds, max_sample=10**5, *args):
     Parameters
     ----------
     pdf : func
-        the probability density function
-        input parameters:
-        *   x : float
-                the evaluation point
-        *   *args : tuple
-                extra parameters
-        output parameters:
-        *   y : float
+        the probability density function.
+
+        - Input parameters:
+            -   `x` : float
+                    the evaluation point
+            -   `*args` : tuple
+                    extra parameters
+        - Output parameters:
+            -   `y` : float
     bounds : tuple of floats
         lower and upper limit
     max_sample : int
