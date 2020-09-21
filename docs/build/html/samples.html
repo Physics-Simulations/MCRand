@@ -193,7 +193,7 @@
 <div class="section" id="multidimensional-integration">
 <h2>Multidimensional Integration<a class="headerlink" href="#multidimensional-integration" title="Permalink to this headline">¶</a></h2>
 <p>To use the MCRand library to perform multidimensional integrals we first need to import the Integrate module. This step can be done in the following way</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mcrand</span> <span class="kn">import</span> <span class="n">uniform_sampling</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mcrand</span> <span class="kn">import</span> <span class="n">uniform_integration</span>
 </pre></div>
 </div>
 <p>Then, we must define the function to integrate in an NumPy ndarray supported way, so it must be defined generally. For instance let’s imagine we want so solve the following integral:</p>
@@ -209,7 +209,7 @@
 <span class="n">xf</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="n">uniform_sampling</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">uniform_integration</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xf</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>

@@ -187,7 +187,7 @@ plt.plot(x, invented(x, sigma), color='r', label=r'Modified Rayleigh PDF $\sigma
 To use the MCRand library to perform multidimensional integrals we first need to import the Integrate module. This step can be done in the following way
 
 ```python
-from mcrand import uniform_sampling
+from mcrand import uniform_integration
 ```
 
 Then, we must define the function to integrate in an NumPy ndarray supported way, so it must be defined generally. For instance let's imagine we want so solve the following integral:
@@ -210,7 +210,7 @@ x0 = [0, 0]
 xf = [2, 3]
 N = 10**6
 
-result = uniform_sampling(func, x0, xf, N)
+result = uniform_integration(func, x0, xf, N)
 
 print(result)
 ```
