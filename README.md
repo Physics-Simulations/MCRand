@@ -1,3 +1,5 @@
+![python](https://github.com/Physics-Simulations/MCRand/workflows/python/badge.svg) [![codecov](https://codecov.io/gh/Physics-Simulations/MCRand/branch/master/graph/badge.svg)](https://codecov.io/gh/Physics-Simulations/MCRand) [![PyPI version](https://badge.fury.io/py/mcrand.svg)](https://badge.fury.io/py/mcrand) [![Documentation Status](https://readthedocs.org/projects/mcrand/badge/?version=latest)](https://mcrand.readthedocs.io/en/latest/?badge=latest)
+
 # MCRand
 MCRand is a library of Monte Carlo methods. Multidimensional integration, non-uniform random number generation, etc.
 
